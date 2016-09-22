@@ -6,8 +6,11 @@ get_header();
 ?>
 
 <div id="hero">
-	<!--img src="/theme/dsmworkers/css/Logo.png" alt="Des Moines Workers' Alliance Logo"-->
-	<?php the_custom_logo(); ?>
+	<?php
+	$logoID = get_theme_mod('custom_logo');
+	$logoImage = wp_get_attachment_image_src($logoID);
+	?>
+	<img src="<?php echo $logoImage[0]; ?>" alt="Des Moines Workers' Alliance Logo">
 	<h1>Des Moines Workers' Alliance</h1>
 </div>
 
@@ -16,9 +19,7 @@ get_header();
 	</div>
 	<div class="aim-list">
 		<div class="aims-list-content">
-			<p>This will be the page content</p>
 			<?php while (have_posts()): the_post(); ?>
-				<h2><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			<?php endwhile; ?>
 		</div>
@@ -26,21 +27,21 @@ get_header();
 </div>
 
 <div id="projects" class="three-item-container">
-	<div class="item">
-		<?php
-		$args = array('post_type' => 'projects');
-		$projects = new WP_Query($args);
+	<?php
+	$args = array('post_type' => 'projects');
+	$projects = new WP_Query($args);
+	?>
 
-		while ($projects->have_posts()): $projects->the_post(); ?>
+	<?php while ($projects->have_posts()): $projects->the_post(); ?>
+		<div class="item">
 			<a href="<?php the_permalink(); ?>">
 				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
 			</a>
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			<?php the_excerpt(); ?>
 			<a class="continue" href="<?php the_permalink(); ?>">More Info</a>
-		<?php endwhile;
-		?>
-	</div>
+		</div>
+	<?php endwhile; ?>
 </div>
 
 <?php get_footer(); ?>
