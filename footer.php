@@ -12,8 +12,12 @@
 					(515) 505-3242<br>
 				</address>
 				<span class="social">
-					<a class="facebook" href="https://www.facebook.com/DSMWorkers">Facebook</a>
-					<a class="twitter" href="https://twitter.com/dsmworkers">Twitter</a>
+					<a class="facebook" href="https://www.facebook.com/DSMWorkers">
+						<img src="<?php bloginfo('template_url'); ?>/images/fb-logo.svg" alt="Facebook">
+					</a>
+					<a class="twitter" href="https://twitter.com/dsmworkers">
+						<img src="<?php bloginfo('template_url'); ?>/images/twitter-logo.svg" alt="Twitter">
+					</a>
 				</span>
 			</div>
 
