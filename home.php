@@ -60,7 +60,7 @@ get_header();
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<h3><?php the_author(); ?> - <?php the_date(); ?></h3>
 					<?php the_excerpt(); ?>
-					<a class="post-link" href="<?php the_permalink(); ?>">Continue Reading</a>
+					<a class="continue" href="<?php the_permalink(); ?>">Continue Reading</a>
 				</div>
 			<?php endwhile; ?>
 		</div>
@@ -81,7 +81,7 @@ get_header();
 
 					<?php if (has_post_thumbnail()): ?>
 						<div class="post-excerpt image-excerpt">
-							<a href="<?php the_permalink(); ?>">
+							<a class="image-link" href="<?php the_permalink(); ?>">
 								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
 							</a>
 					<?php else: ?>
@@ -98,16 +98,18 @@ get_header();
 	</div>
 <?php else: ?>
 	<div id="posts">
-		<?php
-		$args = array(
-			'offset' => 8
-		);
-		$posts = new WP_Query($args);
-		?>
+		<div class="post-list">
+			<?php
+			$args = array(
+				'offset' => 8
+			);
+			$posts = new WP_Query($args);
+			?>
 
-		<?php while ($posts->have_posts()): $posts->the_post(); ?>
-			<?php get_template_part('template-parts/listings'); ?>
-		<?php endwhile; ?>
+			<?php while ($posts->have_posts()): $posts->the_post(); ?>
+				<?php get_template_part('template-parts/listings'); ?>
+			<?php endwhile; ?>
+		</div>
 	</div>
 <?php endif; ?>
 
