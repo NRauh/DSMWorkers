@@ -1,0 +1,59 @@
+#hero {
+    text-align: center;
+    height: 30vw; //(100/1280)*384px
+    background-image: url(images/Des-Moines-Hero-1920.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    img {
+        width: 21vw;
+        margin-top: 1.5625vw;
+        margin-bottom: 1.5625vw;
+    }
+
+    h1 {
+        color: $hero-font-color;
+        font-size: 6.5vw; //~((100/1280)*70) + 1
+    }
+}
+
+#aims {
+    width: 100%;
+    margin-top: em(40);
+    display: table;
+
+    .aim-image {
+        width: percentage(448/1000);
+        display: table-cell;
+        background-image: url(images/Evictions-March-1920.jpg);
+        background-size: cover;
+        background-position: 50% 25%;
+        background-repeat: no-repeat;
+    }
+
+    .aim-list {
+        width: percentage(552/1000);
+        display: table-cell;
+        background-color: $red;
+        
+        .aims-list-content {
+            padding: em(12);
+
+            h2 {
+                margin-bottom: em(8, 30);
+                color: black;
+            }
+
+            ol {
+                padding-left: em(16);
+                color: white;
+                line-height: em(28);
+            }
+        }
+    }
+}
+
+#projects {
+    margin-top: em(70);
+}
+

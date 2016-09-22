@@ -1,0 +1,82 @@
+#page-footer {
+	background-color: $grey;
+	margin-top: em(60);
+	padding-top: em(30);
+	padding-bottom: em(30);
+
+	.container {
+		max-width: $max-width;
+		margin: 0 auto;
+		@include flexbox;
+		@include flex-wrap(wrap);
+		@include justify-content(center);
+
+		a {
+			color: white;
+		}
+
+		.left, .right {
+			width: percentage(174/840);
+		}
+
+		.center {
+			width: percentage(448/840);
+
+			h4 {
+				font-size: em(18, 18);
+			}
+		}
+
+		.left, .center, .right {
+			margin-left: percentage(6/840);
+			margin-right: percentage(6/840);
+			font-size: em(18);
+			line-height: 1.5em;
+			color: white;
+
+			a {
+				font-style: normal;
+
+				&:hover {
+					color: darken(white, 15);
+				}
+			}
+		}
+
+		.left {
+			address {
+				font-family: $sans-font;
+				font-style: normal;
+				font-size: em(18, 18);
+			}
+
+			.social {
+				display: block;
+				margin-top: em(5, 18);
+
+				.facebook {
+					margin-right: em(5, 18);
+				}
+
+				.twitter {
+					margin-left: em(5, 18);
+				}
+			}
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		.right {
+			ul {
+				list-style: none;
+
+				li {
+					text-align: right;
+					font-size: em(18, 18);
+				}
+			}
+		}
+	}
+}

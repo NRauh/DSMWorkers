@@ -1,0 +1,36 @@
+/*!
+Theme Name: dsmworkers
+Author: Nate Rauh
+Description: Wordpress theme for the Des Moines Workers Alliance
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@function em($pixels, $context: 16) {
+	@return #{$pixels/$context}em;
+}
+
+@import "_fonts.scss";
+@import "_flex.scss";
+@import "_variables.scss";
+@import "_typography.scss";
+@import "_menu.scss";
+@import "index.scss";
+@import "general-page.scss";
+@import "projects.scss";
+@import "newspaper.scss";
+@import "_share-buttons.scss";
+@import "_foot.scss";
+@import "_media_queries.scss";
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	font-family: $serif-font;
+}
+

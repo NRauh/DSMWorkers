@@ -1,0 +1,53 @@
+#menu {
+	width: 100%;
+	background: $menu-background;
+
+	ul {
+		@include flexbox;
+		@include flex-wrap(nowrap);
+		@include justify-content(space-between);
+		max-width: $max-width;
+		margin-left: auto;
+		margin-right: auto;
+		list-style: none;
+		text-align: center;
+
+		li {
+			width: percentage(80/1000);
+			height: em(60, 14);
+			margin: 0;
+			font-family: $sans-font;
+			text-align: center;
+			line-height: em(60, 14);
+
+			a {
+				text-decoration: none;
+				display: block;
+				color: $menu-font-color;
+				font-size: em(24, 14);
+				font-style: normal;
+				font-weight: 100;
+
+				&:hover {
+					background-color: darken($menu-background, 8);
+				}
+			}
+		}
+	}
+
+	#menu-button {
+		display: none;
+		margin: em(7, 24);
+		padding: em(5, 24);
+		font-family: $sans-font;
+		font-size: em(24);
+		border: em(2, 24) solid $grey;
+		border-radius: em(4, 24);
+		// grey is set to the background color in js when the menu is active
+		// i.e. when both this button and the list are visible
+
+		&:hover {
+			background-color: darken($menu-background, 8);
+		}
+	}
+}

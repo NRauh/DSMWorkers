@@ -1,0 +1,182 @@
+@media (min-width: 1921px) {
+	#hero {
+		background-image: url(images/Des-Moines-Hero-Full.jpg);
+	}
+}
+
+@media (max-width: 900px) {
+	/* Collapse menu */
+	#menu {
+		#menu-button {
+			display: inline-block;
+		}
+
+		ul {
+			display: none;
+
+			li {
+				display: block;
+				width: 100%;
+				margin-left: 0;
+				line-height: em(42, 14);
+				height: em(42, 14);
+				border-top: em(1, 14) solid $grey;
+			}
+		}
+	}
+
+	/* Resize hero image */
+	#hero {
+    background-image: url(images/Des-Moines-Hero-900.jpg);
+	}
+
+	/* Resize aims image */
+	#aims {
+		.aim-image {
+			background-image: url(images/Evictions-March-900.jpg);
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	/* Items in three column row have own row */
+	.three-item-container {
+		.item {
+			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: em(30);
+
+			img {
+				display: block;
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: em(10, 14);
+			}
+		}
+	}
+
+	/* Aims items have own row */
+	#aims {
+		display: block;
+
+		.aim-image {
+			display: block;
+			width: 100%;
+			height: em(200);
+			background-image: url(images/Evictions-March-700.jpg);
+		}
+
+		.aim-list {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	/* Single projects are one column */
+	#project-body {
+		.left-col {
+			width: 100%;
+		}
+
+		.right-col {
+			margin-top: em(20);
+			width: 100%;
+		}
+	}
+
+	/* Resize hero image */
+	#hero {
+    background-image: url(images/Des-Moines-Hero-700.jpg);
+	}
+}
+
+@media (max-width: 500px) {
+	/* Each item in two column container have own row */
+	.two-column-container {
+		.left-col {
+			width: 100%;
+
+			a {
+				img {
+					display: block;
+					width: 75%;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: em(10, 14);
+				}
+			}
+		}
+
+		.right-col {
+			width: 100%;
+		}
+	}
+
+	#project-body {
+		.left-col {
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	/* Post list formattin */
+	#posts {
+		margin-top: em(20);
+	}
+
+	.pagination, .bottom-notes {
+		margin-top: em(30);
+	}
+
+	/* Formatting posts */
+	.page-body {
+		.byline {
+			margin-bottom: em(30);
+		}
+
+		.head-image {
+			width: 100%;
+		}
+	}
+
+	/* Each section in footer has own row */
+	#page-footer {
+		padding-top: em(15);
+		padding-bottom: em(15);
+
+		.container {
+			.left, .center, .right {
+				width: 100%;
+				text-align: center;
+			}
+
+			.center {
+				margin-top: em(15, 18);
+				margin-bottom: em(15, 18);
+			}
+
+			.right {
+				ul {
+					li {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+	/* Resize hero image */
+	#hero {
+    background-image: url(images/Des-Moines-Hero-500.jpg);
+	}
+
+	/* Resize aims image */
+	#aims {
+		.aim-image {
+			background-image: url(images/Evictions-March-500.jpg);
+		}	
+	}
+}
