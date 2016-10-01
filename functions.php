@@ -14,7 +14,7 @@ if (!function_exists('dsmworkers_setup')) {
 add_action('after_setup_theme', 'dsmworkers_setup');
 
 function dsmworkers_scripts() {
-	wp_enqueue_script('dsmworkers', get_template_directory_uri() . '/js/dsmworkers.js', null, 1.0, false);
+	wp_enqueue_script('dsmworkers', get_template_directory_uri() . '/js/dsmworkers.js', null, 1.0, true);
 }
 add_action('wp_enqueue_scripts', 'dsmworkers_scripts');
 
