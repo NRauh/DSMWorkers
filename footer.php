@@ -22,7 +22,7 @@
 			</div>
 
 			<div class="center">
-				<h4>Des Moines Workers' Alliance: Building Working Class Power Since 2016</h4>
+				<h4><?php echo get_bloginfo('description'); ?></h4>
 			</div>
 
 			<div class="right">
