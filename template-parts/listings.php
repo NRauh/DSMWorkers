@@ -11,7 +11,7 @@
 	<?php if (has_post_thumbnail()): ?>
 		<div class="post-excerpt image-excerpt">
 			<a class="image-link" href="<?php the_permalink(); ?>">
-				<img src="<?php the_thumbnail(); ?>" alt="<?php the_title_attribute(); ?>">
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
 			</a>
 	<?php else: ?>
 		<div class="post-excerpt">

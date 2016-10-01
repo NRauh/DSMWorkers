@@ -4,6 +4,12 @@
 */?>
 <?php get_header(); ?>
 
-<h1>Hello World</h1>
+<div id="posts">
+	<div class="post-list">
+		<?php while (have_posts()): the_post(); ?>
+			<?php get_template_part('template-parts/listings'); ?>
+		<?php endwhile; ?>
+	</div>
+</div>
 
 <?php get_footer(); ?>
