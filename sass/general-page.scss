@@ -14,31 +14,25 @@
 		margin-right: em(12);
 		margin-top: em(4);
 		margin-bottom: em(12);
+		max-width: 45%;
+		height: auto;
 
 		&.alignnone {
 			display: block;
-			width: 45%;
-			height: auto;
 		}
 
 		&.alignleft {
 			float: left;
-			width: 45%;
-			height: auto;
 		}
 
 		&.aligncenter {
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			width: 45%;
-			height: auto;
 		}
 
 		&.alignright {
 			float: right;
-			width: 45%;
-			height: auto;
 		}
 	}
 
@@ -104,7 +98,7 @@
 	}
 
 	.head-image {
-		width: percentage(448/816);
+		max-width: percentage(448/816);
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
