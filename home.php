@@ -9,7 +9,11 @@ get_header();
 
 <h1 class="page-title">The Radical Worker</h1>
 
-<?php if (get_query_var('paged') < 1): ?>
+<?php
+$page = get_query_var('paged');
+$firstPosts = array();
+if ($page < 1):
+?>
 	<div id="featured-post" class="two-column-container">
 		<?php
 		$args = array(
@@ -21,7 +25,6 @@ get_header();
 
 		<?php while ($featured->have_posts()): $featured->the_post(); ?>
 			<?php
-			$firstPosts = array();
 			$firstPosts[] = get_the_ID();
 			?>
 			<div class="left-col">
@@ -38,19 +41,23 @@ get_header();
 			</div>
 		<?php endwhile; ?>
 	</div>
+<?php endif; ?>
 
-	<div id="posts">
+<div id="posts">
+	<?php
+	$args = array(
+		'post__not_in' => $firstPosts,
+		'paged' => $paged
+	);
+	$posts = new WP_Query($args);
+	?>
+
+	<?php if ($page == 1): ?>
 		<div class="three-item-container">
 			<?php
-			$args = array(
-				'post__not_in' => $firstPosts,
-				'posts_per_page' => 3
-			);
-			$recent = new WP_Query($args);
+			$i = 0;
+			while ($posts->have_posts() && $i < 3): $posts->the_post();
 			?>
-
-			<?php while ($recent->have_posts()): $recent->the_post(); ?>
-				<?php $firstPosts[] = get_the_ID(); ?>
 				<div class="item">
 					<?php if (has_post_thumbnail()): ?>
 						<a href="<?php the_permalink(); ?>">
@@ -62,60 +69,24 @@ get_header();
 					<?php the_excerpt(); ?>
 					<a class="continue" href="<?php the_permalink(); ?>">Continue Reading</a>
 				</div>
-			<?php endwhile; ?>
-		</div>
-
-		<div class="post-list">
 			<?php
-			$args = array(
-				'post__not_in' => $firstPosts,
-				'posts_per_page' => 4
-			);
-			$posts = new WP_Query($args);
+			$i++;
+			endwhile;
 			?>
-
-			<?php while ($posts->have_posts()): $posts->the_post(); ?>
-				<div class="post">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<h3><?php the_author(); ?> - <?php the_date(); ?></h3>
-
-					<?php if (has_post_thumbnail()): ?>
-						<div class="post-excerpt image-excerpt">
-							<a class="image-link" href="<?php the_permalink(); ?>">
-								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
-							</a>
-					<?php else: ?>
-						<div class="post-excerpt">
-					<?php endif; ?>
-							<div class="excerpt-text">
-								<?php the_excerpt(); ?>
-								<a class="post-link" href="<?php the_permalink(); ?>">Continue Reading</a>
-							</div>
-						</div>
-				</div>
-			<?php endwhile; ?>
 		</div>
-	</div>
-<?php else: ?>
-	<div id="posts">
-		<div class="post-list">
-			<?php
-			$args = array(
-				'offset' => 8
-			);
-			$posts = new WP_Query($args);
-			?>
 
-			<?php while ($posts->have_posts()): $posts->the_post(); ?>
-				<?php get_template_part('template-parts/listings'); ?>
-			<?php endwhile; ?>
-		</div>
+	<?php endif; ?>
+
+	<div class="post-list">
+		<?php while ($posts->have_posts()): $posts->the_post(); ?>
+			<?php get_template_part('template-parts/listings'); ?>
+		<?php endwhile; ?>
 	</div>
-<?php endif; ?>
+</div>
 
 <div class="pagination">
-	<?php previous_posts_link('&lt; Previous Page', $posts->max_num_pages); ?>
-	<?php next_posts_link('Next Page &gt;', $posts->max_num_pages); ?>
+	<?php previous_posts_link('&lt; Previous Page'); ?>
+	<?php next_posts_link('Next Page &gt;'); ?>
 </div>
 
 <?php get_footer(); ?>
